@@ -2,3 +2,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  @apply bg-gradient-to-r from-violet-600 to-indigo-600 w-screen h-screen m-0;
+
+}
+
+.app-btn{
+  @apply text-white bg-violet-800/30 hover:bg-violet-800/70 transition-all duration-300 font-medium rounded
+}
+.app-btn-connect{
+  @apply !text-white !bg-violet-800/50 hover:!bg-violet-800/30 !transition-all !duration-300 !font-medium !rounded
+}
+.app-btn-light{
+  @apply text-white !bg-violet-800 !bg-opacity-0 hover:!bg-opacity-30 transition-all duration-300 font-medium rounded
+}
+
+.app-grad{
+@apply bg-gradient-to-r from-violet-900 to-indigo-600
+}
+
+.ff{
+  text-shadow: 4px -6px 1px #000;
+
+}
+
+button[data-active='true']{
+@apply !bg-violet-300/80
+}
+button[data-disabled='true']{
+@apply pointer-events-none
+}

@@ -1,4 +1,5 @@
 import LanguageChanger from "@/components/LanguageChanger";
+import Nav from "@/components/Nav";
 import SuspenseOutlet from "@/components/SuspenseOutlet";
 import ThemeChanger from "@/components/ThemeChanger";
 import clsx from "clsx";
@@ -9,7 +10,8 @@ import { Link } from "react-router-dom";
 export default function MasterLayout(): JSX.Element {
   return (
     <>
-      <Navbar
+      <Nav />
+      {/* <Navbar
         className={clsx(
           "navbar fixed z-20 border-b",
           "border-b-base-200 bg-base-100"
@@ -61,7 +63,7 @@ export default function MasterLayout(): JSX.Element {
             </Dropdown.Menu>
           </Dropdown>
         </div>
-      </Navbar>
+      </Navbar> */}
 
       <SuspenseOutlet />
     </>
