@@ -27,8 +27,14 @@
     ]
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@mantine/core": "^6.0.13",
+    "@mantine/dates": "^6.0.13",
+    "@mantine/form": "^6.0.13",
+    "@mantine/hooks": "^6.0.13",
     "@reduxjs/toolkit": "^1.9.3",
     "clsx": "^1.2.1",
+    "dayjs": "^1.11.8",
     "i18next": "^22.4.13",
     "i18next-browser-languagedetector": "^7.0.1",
     "react": "^18.2.0",

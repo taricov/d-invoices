@@ -1,63 +1,7 @@
-// import { useAppDispatch, useAppSelector } from "@/hooks/redux";
-// import { counterActions } from "@/redux/counter/counterSlice";
-// import { useCallback } from "react";
-// import { Button, Card } from "react-daisyui";
-// import { useTranslation } from "react-i18next";
-
-// export default function Home(): JSX.Element {
-//   const { t } = useTranslation();
-
-//   // Access the dispatcher & fully-typed state
-//   // from anywhere in the app using hooks
-//   const dispatch = useAppDispatch();
-//   const { counter } = useAppSelector((state) => state.counter);
-
-//   // Increase the counter
-//   const increaseCounter = useCallback(() => {
-//     const increasedCount = counter + 1;
-//     dispatch(counterActions.setCounter(increasedCount));
-//   }, [counter]);
-
-//   // Decrease the counter
-//   const decreaseCounter = useCallback(() => {
-//     const decreasedCount = counter - 1;
-//     dispatch(counterActions.setCounter(decreasedCount));
-//   }, [counter]);
-
-//   return (
-//     <div className="flex h-screen">
-//       <div className="m-auto">
-//         <Card className="w-96 bg-neutral text-neutral-content">
-//           <Card.Body className="items-center text-center">
-//             <Card.Title tag="h2" className="font-sans text-8xl">
-//               {counter}
-//             </Card.Title>
-//             <p className="p-4 text-sm">
-//               An example state management using redux, check the console for
-//               action logs.
-//             </p>
-//             <Card.Actions className="justify-end">
-//               <Button color="error" onClick={decreaseCounter}>
-//                 {t("decrease")}
-//               </Button>
-//               <Button color="success" onClick={increaseCounter}>
-//                 {t("increase")}
-//               </Button>
-//             </Card.Actions>
-//           </Card.Body>
-//         </Card>
-//       </div>
-//     </div>
-//   );
-// }
-// ==================  My Home Page ====================
-
 import { Badge, Container, Text } from "@mantine/core";
-import { type NextPage } from "next";
-import Link from "next/link";
 // import "./styles.css";
 
-const Home: NextPage = () => {
+const Home: React.FC = () => {
   // const Home: NextPage = ({data}: InferGetStaticPropsType<typeof getStaticProps>) => {
 
   return (
@@ -85,7 +29,7 @@ const Home: NextPage = () => {
           For a better and more convenient ERP experience
         </Text>
 
-        <Link
+        <a
           href="#"
           className="duration-400 my-7 inline-flex items-center justify-between rounded-full bg-violet-900/80 px-1 py-1 pr-4 text-sm text-violet-100 transition  hover:bg-violet-900/100"
           role="alert"
@@ -108,10 +52,10 @@ const Home: NextPage = () => {
               clipRule="evenodd"
             ></path>
           </svg>
-        </Link>
+        </a>
 
         <div className="mb-8 flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-x-4 sm:space-y-0 lg:mb-16">
-          <Link
+          <a
             href="#"
             className="app-btn inline-flex items-center justify-center px-5 py-3"
           >
@@ -128,8 +72,8 @@ const Home: NextPage = () => {
                 clipRule="evenodd"
               ></path>
             </svg>
-          </Link>
-          <Link
+          </a>
+          <a
             href="#"
             className="app-btn inline-flex items-center justify-center px-5 py-3 "
           >
@@ -142,7 +86,7 @@ const Home: NextPage = () => {
               <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path>
             </svg>
             Watch video
-          </Link>
+          </a>
         </div>
         <div className="mx-3 !mt-10 flex items-center justify-center sm:m-0 ">
           {/* <AppTabs/> */}
