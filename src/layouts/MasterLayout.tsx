@@ -1,11 +1,11 @@
-import LanguageChanger from "@/components/LanguageChanger";
-import Nav from "@/components/Nav";
+// import LanguageChanger from "@/components/LanguageChanger";
+// import ThemeChanger from "@/components/ThemeChanger";
+// import clsx from "clsx";
+// import { Dropdown, Navbar } from "react-daisyui";
+// import { HiMenuAlt2 } from "react-icons/hi";
+// import { Link } from "react-router-dom";
 import SuspenseOutlet from "@/components/SuspenseOutlet";
-import ThemeChanger from "@/components/ThemeChanger";
-import clsx from "clsx";
-import { Dropdown, Navbar } from "react-daisyui";
-import { HiMenuAlt2 } from "react-icons/hi";
-import { Link } from "react-router-dom";
+import Nav from "@/components/Nav";
 
 export default function MasterLayout(): JSX.Element {
   return (
@@ -66,6 +66,14 @@ export default function MasterLayout(): JSX.Element {
       </Navbar> */}
 
       <SuspenseOutlet />
+
+      <div className="fixed bottom-0 mx-auto flex w-full items-center justify-center">
+        this is a footer ....
+      </div>
+
     </>
   );
 }
+// TODO: add footer 
+// TODO: add one more page for swutching the mode G/T
+// TODO: no more for 2-pages solution!!!
