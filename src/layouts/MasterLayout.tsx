@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 // import LanguageChanger from "@/components/LanguageChanger";
 // import ThemeChanger from "@/components/ThemeChanger";
 // import clsx from "clsx";
@@ -67,13 +68,17 @@ export default function MasterLayout(): JSX.Element {
 
       <SuspenseOutlet />
 
-      <div className="fixed bottom-0 mx-auto flex w-full items-center justify-center">
-        this is a footer ....
+      <div className="fixed bottom-0 mx-auto  my-5 w-full bg-violet-500/30 py-1 text-center text-violet-100 transition duration-300 hover:text-violet-50/50">
+        Proudly developed by Taric Ov 💪
+        <br />
+        <span className="text-xs">
+          All Rights Are <b>NOT</b> Reserved 👉 Built in/for Public ... Feel
+          Free To Use 🎉
+        </span>
       </div>
-
     </>
   );
 }
-// TODO: add footer 
+// TODO: add footer`
 // TODO: add one more page for swutching the mode G/T
 // TODO: no more for 2-pages solution!!!
