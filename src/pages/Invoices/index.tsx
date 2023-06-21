@@ -1,52 +1,68 @@
-import { useAppDispatch, useAppSelector } from "@/hooks/redux";
-import { counterActions } from "@/redux/counter/counterSlice";
-import { useCallback } from "react";
-import { Button, Card } from "react-daisyui";
-import { useTranslation } from "react-i18next";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/* eslint-disable prettier/prettier */
+import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 
-export default function Home(): JSX.Element {
-  const { t } = useTranslation();
+interface Filters {
+  perPage: string;
+  page: string;
+}
 
-  // Access the dispatcher & fully-typed state
-  // from anywhere in the app using hooks
-  const dispatch = useAppDispatch();
-  const { counter } = useAppSelector((state) => state.counter);
+const GetInvoices = async (
+  subdomain: string,
+  apikey: string,
+  perPage: string,
+  page: string
+): Promise<Response> => {
+  const res = await fetch(
+    `https://${subdomain}.daftra.com/v2/api/entity/invoice/list/1?per_page=${perPage}&page=${page}`,
+    {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        apikey
+      }
+    }
+  );
+  const json = await res.json();
+  return json;
+};
 
-  // Increase the counter
-  const increaseCounter = useCallback(() => {
-    const increasedCount = counter + 1;
-    dispatch(counterActions.setCounter(increasedCount));
-  }, [counter]);
+export default function Invoices(): React.ReactElement {
+  const [perPage, setPerPage] = useState<string>("10");
+  const [totalInvs, setTotalInvs] = useState<string>("0");
 
-  // Decrease the counter
-  const decreaseCounter = useCallback(() => {
-    const decreasedCount = counter - 1;
-    dispatch(counterActions.setCounter(decreasedCount));
-  }, [counter]);
+  const [totalPages, setTotalPages] = useState<number>(+totalInvs / +perPage);
+  const [page, onChange] = useState("1");
+
+  const [filters, setFilters] = useState<Filters>({ perPage, page });
+  // const useGetInvs = (filters: Filters) => {
+  //   return useQuery(["filtered-invs", filters], () =>
+  //     // GetAllInvs(props.url, filters, props.headers)
+  //   );
+  // };
+
+  const QueryHook = () => {
+    useQuery({
+      queryKey: ["get-invs"],
+      queryFn: () =>
+        GetInvoices(
+          "taricov",
+          "24b476fdd8aa43091e0963ba01b98762155c9dd4",
+          "4",
+          "1"
+        ),
+      enabled: true
+    });
+  };
+
+  const { data, isLoading, isError, error, refetch } = QueryHook;
+  console.log(data);
 
   return (
-    <div className="flex h-screen">
-      <div className="m-auto">
-        <Card className="w-96 bg-neutral text-neutral-content">
-          <Card.Body className="items-center text-center">
-            <Card.Title tag="h2" className="font-sans text-8xl">
-              {counter}
-            </Card.Title>
-            <p className="p-4 text-sm">
-              An example state management using redux, check the console for
-              action logs.
-            </p>
-            <Card.Actions className="justify-end">
-              <Button color="error" onClick={decreaseCounter}>
-                {t("decrease")}
-              </Button>
-              <Button color="success" onClick={increaseCounter}>
-                {t("increase")}
-              </Button>
-            </Card.Actions>
-          </Card.Body>
-        </Card>
-      </div>
-    </div>
+    <>
+      <p>heere goess anything..</p>
+    </>
   );
 }
