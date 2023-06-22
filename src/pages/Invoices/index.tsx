@@ -1,8 +1,12 @@
+/* eslint-disable @typescript-eslint/await-thenable */
+/* eslint-disable @typescript-eslint/no-confusing-void-expression */
+/* eslint-disable @typescript-eslint/restrict-plus-operands */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable prettier/prettier */
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import axios from "axios";
 
 interface Filters {
   perPage: string;
@@ -14,7 +18,7 @@ const GetInvoices = async (
   apikey: string,
   perPage: string,
   page: string
-): Promise<Response> => {
+): Promise<any> => {
   const res = await fetch(
     `https://${subdomain}.daftra.com/v2/api/entity/invoice/list/1?per_page=${perPage}&page=${page}`,
     {
@@ -25,11 +29,12 @@ const GetInvoices = async (
       }
     }
   );
-  const json = await res.json();
-  return json;
+  return await res.json();
 };
 
 export default function Invoices(): React.ReactElement {
+  const [subdomain, setSubdomain] = useState<string | undefined>(undefined);
+  const [apikey, setApikey] = useState<string | undefined>(undefined);
   const [perPage, setPerPage] = useState<string>("10");
   const [totalInvs, setTotalInvs] = useState<string>("0");
 
@@ -43,8 +48,8 @@ export default function Invoices(): React.ReactElement {
   //   );
   // };
 
-  const QueryHook = () => {
-    useQuery({
+  const useInvoices = () => {
+    return useQuery({
       queryKey: ["get-invs"],
       queryFn: () =>
         GetInvoices(
@@ -57,12 +62,27 @@ export default function Invoices(): React.ReactElement {
     });
   };
 
-  const { data, isLoading, isError, error, refetch } = QueryHook;
+  // const { data, isLoading, isError, error, refetch } = await QueryHook();
+
+  // const { isLoading, isError, data, error, refetch } = useQuery(["repo"], () =>
+  //   axios
+  //     .get(
+  //       `https://${subdomain}.daftra.com/v2/api/entity/invoice/list/1?per_page=${perPage}&page=${page}`
+  //     )
+  //     .then((res: any) => res.data)
+  // );
+
+  const { data, isLoading, isError, error, refetch } = useInvoices();
   console.log(data);
 
+  if (isLoading) return <div>Loading.........</div>;
+  if (error) return <div>{"An error has occurred: "}</div>;
   return (
     <>
       <p>heere goess anything..</p>
+      {/* <button type="button" onClick={() => refetch}>
+        Fetch again
+      </button> */}
     </>
   );
 }

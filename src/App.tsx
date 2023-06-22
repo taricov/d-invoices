@@ -5,6 +5,7 @@ import i18n from "@/i18n";
 import { useAppSelector } from "@/hooks/redux";
 import { getLanguage } from "@/redux/app/appSelector";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 export default function App(): JSX.Element {
   const language = useAppSelector(getLanguage);
@@ -17,6 +18,7 @@ export default function App(): JSX.Element {
     <div className="min-h-screen w-full">
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />
+        <ReactQueryDevtools initialIsOpen={true} />
       </QueryClientProvider>
     </div>
   );
