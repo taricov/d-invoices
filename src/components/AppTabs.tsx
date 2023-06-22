@@ -11,14 +11,14 @@ interface TabProps {
 }
 
 const tabs: TabProps[] = [
-  { id: "g", label: "Grid", icon: <BsFillGridFill />, url: "/grid-view" },
-  { id: "t", label: "Table", icon: <BsTable size={23} />, url: "/table-view" }
+  { id: "g", label: "Grid", icon: <BsFillGridFill />, url: "#grid-view" },
+  { id: "t", label: "Table", icon: <BsTable size={23} />, url: "#table-view" }
 ];
 
 export function AppTabs(): React.ReactElement {
   const [activeTab, setActiveTab] = useState<string | undefined>(tabs[0]?.id);
   return (
-    <div className="flex space-x-1">
+    <div className="flex space-x-1 py-6">
       {tabs.map((tab) => (
         <a
           href={tab.url}
@@ -35,7 +35,7 @@ export function AppTabs(): React.ReactElement {
           {activeTab === tab.id && (
             <motion.span
               layoutId="bubble"
-              className="absolute inset-0 -z-10 bg-white/10"
+              className="absolute inset-0 bg-white/10"
               style={{ borderRadius: 5 }}
               transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
             />

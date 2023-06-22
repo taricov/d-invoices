@@ -1,11 +1,9 @@
-import AppTabs from "./AppTabs";
+import { AppTabs } from "./AppTabs";
 
-export default function ViewsHero(){
-
-    return (
-        <>
-        
-        <AppTabs/>
-        </>
-    )
+export default function ViewsHero(): React.ReactElement {
+  return (
+    <>
+      <AppTabs />
+    </>
+  );
 }
