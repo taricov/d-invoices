@@ -7,8 +7,13 @@
 // import { Link } from "react-router-dom";
 import SuspenseOutlet from "@/components/SuspenseOutlet";
 import Nav from "@/components/Nav";
+import { useLocation } from "react-router-dom";
+import { AppTabs } from "@/components/AppTabs";
+import { Container } from "@mantine/core";
 
 export default function MasterLayout(): JSX.Element {
+  const location = useLocation();
+  console.log(location);
   return (
     <>
       <Nav />
@@ -65,7 +70,11 @@ export default function MasterLayout(): JSX.Element {
           </Dropdown>
         </div>
       </Navbar> */}
-
+      {location.pathname === "/invoices" && (
+        <Container className="mx-5 mb-10 mt-32 flex items-center justify-center overflow-hidden rounded-lg bg-violet-200/10 p-0 text-center md:mx-3 md:mt-[4rem] lg:mx-auto">
+          <AppTabs />
+        </Container>
+      )}
       <SuspenseOutlet />
 
       <div className="fixed bottom-0 mx-auto  my-5 w-full bg-violet-500/30 py-1 text-center text-violet-100 transition duration-300 hover:text-violet-50/50">

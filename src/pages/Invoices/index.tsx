@@ -179,7 +179,7 @@ export default function Invoices(): React.ReactElement {
       <Container className="mx-5 mb-10 mt-32 flex items-center justify-center overflow-hidden rounded-lg bg-violet-200/10 p-0 text-center md:mx-3 md:mt-[4rem] lg:mx-auto">
         {/* <div className="flex items-center justify-center py-5">
       </div> */}
-        <ViewsHero />
+        {/* <ViewsHero /> */}
       </Container>
 
       <Container className="mx-5 mb-10 overflow-hidden rounded-lg bg-violet-200/10 p-0 text-center md:mx-3 lg:mx-auto">
