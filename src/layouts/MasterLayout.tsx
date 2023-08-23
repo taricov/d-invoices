@@ -77,14 +77,15 @@ export default function MasterLayout(): JSX.Element {
       )}
       <SuspenseOutlet />
 
-      <div className="fixed bottom-0 mx-auto  my-5 w-full bg-violet-500/30 py-1 text-center text-violet-100 transition duration-300 hover:text-violet-50/50">
-        Proudly developed by Taric Ov 💪
+      {/* <div className="fixed bottom-0 mx-auto mt-2 w-full bg-violet-500 py-1 text-center text-violet-100 transition duration-300 hover:text-violet-50/50">
+        Proudly developed by <br />
+        Taric Ov 💪
         <br />
-        <span className="text-xs">
-          All Rights Are <b>NOT</b> Reserved 👉 Built in/for Public ... Feel
-          Free To Use 🎉
+        <span className="text-[9px]">
+          All Rights Are <b>NOT</b> Reserved 👉 Built in/for Public .. Feel Free
+          To Use 🎉
         </span>
-      </div>
+      </div> */}
     </>
   );
 }

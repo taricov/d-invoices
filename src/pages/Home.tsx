@@ -1,3 +1,4 @@
+import AppAccess from "@/components/AppAccess";
 import { Badge, Container, Text } from "@mantine/core";
 // import "./styles.css";
 
@@ -30,7 +31,7 @@ const Home: React.FC = () => {
         </Text>
 
         <a
-          href="#"
+          href="/invoices"
           className="duration-400 my-7 inline-flex items-center justify-between rounded-full bg-violet-900/80 px-1 py-1 pr-4 text-sm text-violet-100 transition  hover:bg-violet-900/100"
           role="alert"
         >
@@ -55,8 +56,9 @@ const Home: React.FC = () => {
         </a>
 
         <div className="mb-8 flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-x-4 sm:space-y-0 lg:mb-16">
-          <a
+          {/* <a
             href="#"
+            onClick={}
             className="app-btn inline-flex items-center justify-center px-5 py-3"
           >
             Connect
@@ -72,7 +74,8 @@ const Home: React.FC = () => {
                 clipRule="evenodd"
               ></path>
             </svg>
-          </a>
+          </a> */}
+          {/* <AppAccess /> */}
           <a
             href="#"
             className="app-btn inline-flex items-center justify-center px-5 py-3 "
