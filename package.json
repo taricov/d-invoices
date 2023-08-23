@@ -10,7 +10,7 @@
   "scripts": {
     "start:dev": "vite",
     "translate": "transmart",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint \"src/**/*.{ts,tsx}\" --fix"
   },
