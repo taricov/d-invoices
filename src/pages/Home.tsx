@@ -31,7 +31,7 @@ const Home: React.FC = () => {
         </Text>
 
         <a
-          href="/invoices"
+          href="/invoices#grid-view"
           className="duration-400 my-7 inline-flex items-center justify-between rounded-full bg-violet-900/80 px-1 py-1 pr-4 text-sm text-violet-100 transition  hover:bg-violet-900/100"
           role="alert"
         >
