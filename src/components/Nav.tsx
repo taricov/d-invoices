@@ -9,11 +9,11 @@ interface NavPorps {
 const Navbar = (): React.ReactElement => {
   const listItems: NavPorps[] = [
     {
-      label: "Author",
-      to: "/author"
+      label: "D-Suite",
+      to: "https://d-suite-website.vercel.app/"
     },
     {
-      label: "D-Suite",
+      label: "Author",
       to: "https://github.com/taricov"
     }
   ];
